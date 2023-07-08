@@ -1,0 +1,16 @@
+{
+    "name": "buttonfactory.subclassattribute.Editor",
+    "rootNamespace": "",
+    "references": [
+        "buttonfactory.subclassattribute"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
