@@ -17,10 +17,13 @@ namespace BF_SubclassList
         float lineHeight => EditorGUIUtility.singleLineHeight * 1.1f;
         List<float> heights = new List<float>();
         string name;
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
+            EditorGUI.BeginProperty(position, label, property);
             if (!initialized)
             {
+                Debug.Log("init" + property.propertyPath);
                 name = property.displayName;
                 heights.AddRange(new float[10]);
                 subclassAttribute = attribute as SubclassListAttribute;
@@ -42,8 +45,7 @@ namespace BF_SubclassList
                     .Where(type => subclassAttribute.Type.IsAssignableFrom(type) && type != subclassAttribute.Type
                     ).ToArray();
             }
-            EditorGUI.BeginProperty(position, label, property);
-            list.DoLayoutList();
+            list.DoList(position);
             list.onAddDropdownCallback = (Rect buttonRect, ReorderableList l) =>
             {
                 var menu = new GenericMenu();
@@ -70,12 +72,25 @@ namespace BF_SubclassList
                 property.serializedObject.ApplyModifiedProperties();
             }
 
-            EditorGUI.EndProperty();
-            if (EditorGUI.EndChangeCheck())
-            {
-                property.serializedObject.ApplyModifiedProperties();
-            }
 
+            EditorGUI.EndProperty();
+            //if (EditorGUI.EndChangeCheck())
+            //{
+            //    property.serializedObject.ApplyModifiedProperties();
+            //}
+
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            if (list != null)
+            {
+                return list.GetHeight();
+            }
+            else
+            {
+                return base.GetPropertyHeight(property, label);
+            }
         }
 
         void DrawListItems(Rect position, int index, bool isActive, bool isFocused)

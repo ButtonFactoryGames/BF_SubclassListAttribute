@@ -154,21 +154,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abc_list:
     list:
-    - rid: 4017183577393070082
-    - rid: 4017183577393070083
+    - rid: 4017183849113190401
+    - rid: 4017183849113190402
   references:
     version: 2
     RefIds:
-    - rid: 4017183577393070082
+    - rid: 4017183849113190401
       type: {class: B, ns: BF_SubclassList_Examples, asm: Assembly-CSharp}
       data:
-        myInt: 4545
-        myVector: {x: 0, y: 545, z: 0}
-    - rid: 4017183577393070083
+        myInt: 0
+        myVector: {x: 0, y: 0, z: 0}
+    - rid: 4017183849113190402
       type: {class: C, ns: BF_SubclassList_Examples, asm: Assembly-CSharp}
       data:
-        myInt: 4535
-        myString: fdgfg
+        myInt: 0
+        myString: 
 --- !u!4 &148660418
 Transform:
   m_ObjectHideFlags: 0
